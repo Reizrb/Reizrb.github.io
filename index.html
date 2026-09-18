@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Reihaneh (Rei) Zarrabi — River science &amp; flood modeling</title>
+<meta name="description" content="Reihaneh Zarrabi — Ph.D. candidate studying large-scale river channel geometry and flood inundation across the contiguous US." />
+
+<!-- ============================================================
+     HOW TO USE THIS FILE
+     1. Drop it into a GitHub repo as  index.html  (or a repo named
+        <yourusername>.github.io for a root-level user site).
+     2. In the repo: Settings > Pages > deploy from the main branch.
+     3. Search this file for  EDIT:  comments — those mark every spot
+        where you need to add a real link, email, or image.
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bg: #f6f1e6;
+    --surface: #fffdf8;
+    --surface-2: #ece4d3;
+    --ink: #3a2f22;
+    --ink-soft: #6f6350;
+    --line: #e2d9c6;
+    --accent: #b45a2b;
+    --accent-2: #4a7c59;
+    --accent-ink: #964520;
+    --role: #2f6f9f;
+    --shadow: 0 1px 2px rgba(58,47,34,.06), 0 8px 24px rgba(58,47,34,.07);
+
+    --serif: "Fraunces", Georgia, serif;
+    --sans: "Inter", system-ui, -apple-system, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+
+    --maxw: 1080px;
+    --step-hero: clamp(2.6rem, 1.4rem + 4.6vw, 4.4rem);
+    --step-h2: clamp(1.45rem, 1.1rem + 1.4vw, 2rem);
+  }
+
+  [data-theme="dark"] {
+    --bg: #1e1912;
+    --surface: #2a2318;
+    --surface-2: #342b1d;
+    --ink: #f0e8d8;
+    --ink-soft: #b0a289;
+    --line: #3b3120;
+    --accent: #d8814a;
+    --accent-2: #6fa079;
+    --accent-ink: #eaa876;
+    --role: #7bb4dc;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.35);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    transition: background .3s ease, color .3s ease;
+  }
+
+  a { color: var(--accent-ink); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  a:hover { color: var(--accent); }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(1.25rem, 5vw, 3rem); }
+
+  .skip {
+    position: absolute; left: -999px; top: 0; background: var(--accent); color: #fff;
+    padding: .6rem 1rem; z-index: 200; border-radius: 0 0 8px 0;
+  }
+  .skip:focus { left: 0; }
+
+  :focus-visible { outline: 3px solid var(--accent-2); outline-offset: 2px; border-radius: 3px; }
+
+  /* ---------- Header ---------- */
+  header {
+    position: sticky; top: 0; z-index: 100;
+    background: color-mix(in srgb, var(--bg) 86%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .bar { display: flex; align-items: center; gap: 1.5rem; height: 64px; }
+  .brand { font-family: var(--serif); font-weight: 600; font-size: 1.15rem; letter-spacing: -.01em;
+           text-decoration: none; color: var(--ink); margin-right: auto; }
+  .brand span { color: var(--accent); }
+  nav.main { display: flex; gap: 1.4rem; }
+  nav.main a { position: relative; color: var(--ink-soft); text-decoration: none; font-size: .95rem; font-weight: 500; }
+  nav.main a:hover { color: var(--accent); }
+  nav.main a.active { color: var(--ink); }
+  nav.main a.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: -21px;
+                             height: 2px; background: var(--accent); }
+  .icons { display: flex; gap: .35rem; align-items: center; }
+  .icon-btn {
+    display: inline-grid; place-items: center; width: 38px; height: 38px;
+    border: 1px solid transparent; border-radius: 9px; background: transparent;
+    color: var(--ink-soft); cursor: pointer; text-decoration: none;
+  }
+  .icon-btn:hover { color: var(--accent); background: var(--surface-2); }
+  .icon-btn svg { width: 19px; height: 19px; }
+
+  @media (max-width: 880px) {
+    .bar { height: auto; flex-wrap: wrap; padding-top: .55rem; padding-bottom: .55rem; gap: .6rem 1rem; }
+    nav.main { order: 3; width: 100%; gap: 1.15rem; overflow-x: auto; -webkit-overflow-scrolling: touch;
+               padding-bottom: .1rem; }
+    nav.main a { white-space: nowrap; }
+    nav.main a.active::after { bottom: -4px; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero { position: relative; overflow: hidden; }
+  .hero-contours {
+    position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    color: var(--accent); opacity: .10;
+  }
+  [data-theme="dark"] .hero-contours { opacity: .16; }
+  .hero .wrap { position: relative; z-index: 1; }
+  .hero-grid {
+    display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(1.5rem, 4vw, 3.5rem);
+    align-items: center; padding: clamp(3rem, 7vw, 6rem) 0 clamp(2.5rem, 5vw, 4rem);
+  }
+  .eyebrow { color: var(--accent); font-weight: 600; font-size: .95rem; margin: 0 0 .6rem; }
+  h1 {
+    font-family: var(--serif); font-weight: 600;
+    font-size: var(--step-hero); line-height: 1.02; letter-spacing: -.02em;
+    margin: 0 0 1rem;
+  }
+  .lede { font-size: 1.2rem; color: var(--ink-soft); max-width: 46ch; margin: 0 0 1.5rem; }
+  .lede strong { color: var(--ink); font-weight: 600; }
+  .hero-sub { font-size: 1.1rem; font-weight: 600; color: var(--accent-ink); margin: 0 0 1.1rem; }
+  .welcome { font-size: 1.05rem; color: var(--ink); margin: 0 0 1.1rem; max-width: 46ch; }
+  .hero-contact { margin: 1.6rem 0 0; font-size: 1rem; color: var(--ink-soft); }
+  .hero-contact a { font-weight: 600; color: var(--accent-ink); }
+  .hero-contact a:hover { color: var(--accent); }
+  .icons { margin-left: auto; }
+  .roles { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0 0 1.75rem; }
+  .role {
+    font-size: .85rem; font-weight: 500; color: var(--role);
+    background: var(--surface); border: 1px solid color-mix(in srgb, var(--role) 40%, var(--line));
+    padding: .3rem .75rem; border-radius: 999px;
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+  .btn {
+    display: inline-flex; align-items: center; gap: .5rem; font-weight: 600; font-size: .95rem;
+    padding: .7rem 1.15rem; border-radius: 10px; text-decoration: none; cursor: pointer;
+    border: 1px solid var(--accent);
+  }
+  .btn-primary { background: var(--accent); color: #fff; }
+  [data-theme="dark"] .btn-primary { color: #201a11; }
+  .btn-primary:hover { background: var(--accent-ink); color:#fff; }
+  .btn-ghost { background: transparent; color: var(--accent-ink); }
+  .btn-ghost:hover { background: var(--surface); }
+
+  .portrait {
+    aspect-ratio: 4/5; width: 100%; border-radius: 14px; overflow: hidden;
+    border: 1px solid var(--line); box-shadow: var(--shadow);
+    background:
+      radial-gradient(120% 90% at 30% 15%, var(--accent-2) 0%, transparent 55%),
+      linear-gradient(160deg, var(--surface-2), var(--surface));
+    display: grid; place-items: center; color: var(--ink-soft); text-align: center;
+  }
+  .portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .portrait .ph { padding: 1rem; font-size: .9rem; }
+
+  @media (max-width: 780px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .portrait { max-width: 300px; order: -1; }
+  }
+
+  /* ---------- Sections ---------- */
+  section { padding: clamp(3rem, 6vw, 5rem) 0; border-top: 1px solid var(--line); }
+  section.tab { display: none; border-top: none; }
+  section.tab.active { display: block; }
+  .about-body { color: var(--ink-soft); overflow: hidden; }
+  .about-body p { margin: 0 0 1rem; }
+  .cv-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.05rem; }
+  .cv-head { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; flex-wrap: wrap; }
+  .cv-title { font-weight: 600; color: var(--ink); }
+  .cv-date { font-size: .85rem; color: var(--ink-soft); white-space: nowrap; }
+  .cv-meta { margin: .15rem 0 0; color: var(--ink-soft); font-size: .92rem; }
+  .poster-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.5rem; }
+  .poster { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--surface); }
+  .poster a { display: block; }
+  .poster img.thumb, .poster .thumb.ph { display: block; width: 100%; aspect-ratio: 3/4; object-fit: cover;
+                                          border-bottom: 1px solid var(--line); }
+  .poster .thumb.ph { display: grid; place-items: center; text-align: center; padding: 1rem;
+                      color: var(--ink-soft); font-size: .8rem;
+                      background: linear-gradient(135deg, var(--surface-2), var(--surface)); }
+  .poster .p-body { padding: .9rem 1.1rem 1.1rem; }
+  .poster h3 { font-family: var(--serif); font-size: 1rem; font-weight: 600; margin: 0 0 .2rem; color: var(--ink); }
+  .poster .p-meta { font-size: .85rem; color: var(--ink-soft); margin: 0; }
+  .about-photo { float: right; width: 340px; margin: .3rem 0 1rem 2rem; }
+  .about-photo img { width: 100%; border-radius: 12px; border: 1px solid var(--line); display: block; }
+  .about-photo figcaption { margin-top: .5rem; font-size: .84rem; color: var(--ink-soft); }
+  @media (max-width: 640px) { .about-photo { float: none; width: 100%; max-width: 340px; margin: 0 0 1.2rem; } }
+  .sec-head { max-width: 60ch; margin: 0 0 2.5rem; }
+  h2 { font-family: var(--serif); font-weight: 600; font-size: var(--step-h2);
+       letter-spacing: -.015em; margin: 0 0 .5rem; }
+  .sec-head p { color: var(--ink-soft); margin: 0; }
+
+  /* ---------- Research (40% figure gallery, 60% text, fixed height) ---------- */
+  .research-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+  .r-card { border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+            background: var(--surface); display: grid; grid-template-columns: 2fr 3fr; height: 380px; }
+  .r-media { padding: 1.1rem; border-right: 1px solid var(--line); background: var(--surface);
+             height: 100%; overflow: hidden; }
+  .carousel { width: 100%; height: 100%; display: flex; flex-direction: column; }
+  .carousel .slide { display: none; }
+  .carousel .slide.on { display: block; flex: 1 1 auto; min-height: 0; width: 100%; height: 100%;
+                        object-fit: scale-down; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); }
+  .carousel .dots { flex: 0 0 auto; display: flex; gap: .45rem; justify-content: center; margin-top: .7rem; flex-wrap: wrap; }
+  .carousel .dot { width: 9px; height: 9px; padding: 0; border-radius: 50%; cursor: pointer;
+                   border: 1px solid var(--line); background: transparent; }
+  .carousel .dot.on { background: var(--accent); border-color: var(--accent); }
+  img.r-fig { display: block; width: 100%; height: 100%; object-fit: scale-down;
+              border-radius: 8px; border: 1px solid var(--line); background: var(--surface); }
+  .r-fig.ph { display: grid; place-items: center; text-align: center; padding: 1rem; height: 100%;
+              color: var(--ink-soft); font-size: .8rem; border-right: 1px solid var(--line);
+              background: linear-gradient(135deg, var(--surface-2), var(--surface)); }
+  .r-body { padding: 1.4rem 1.6rem; overflow-y: auto; display: flex; flex-direction: column; justify-content: center; }
+  .r-body h3 { font-size: 1.2rem; line-height: 1.08; margin: .4rem 0 .4rem; font-weight: 600; }
+  .r-body h3 a { color: var(--ink); text-decoration: none; }
+  .r-body h3 a:hover { color: var(--accent); }
+  .r-body p { margin: .15rem 0 .9rem; color: var(--ink-soft); font-size: .97rem; }
+  @media (max-width: 640px) {
+    .r-card { grid-template-columns: 1fr; height: auto; }
+    .r-media { border-right: none; border-bottom: 1px solid var(--line); height: auto; }
+    .carousel { height: auto; }
+    .carousel .slide.on { height: auto; }
+    .r-fig.ph { border-right: none; border-bottom: 1px solid var(--line); height: auto; min-height: 160px; }
+    .r-body { overflow: visible; }
+  }
+  .venue {
+    display: inline-block; font-size: .63rem; font-weight: 600; letter-spacing: .01em;
+    padding: .12rem .45rem; border-radius: 5px; margin: 0 0 .1rem; vertical-align: middle;
+  }
+  .v-pub { background: color-mix(in srgb, var(--accent) 16%, var(--surface)); color: var(--accent-ink);
+           border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); }
+  .v-review { background: transparent; color: var(--ink-soft); border: 1px dashed var(--line); }
+  .v-prep { background: var(--surface-2); color: var(--ink-soft); border: 1px solid var(--line); }
+  .v-focus { background: color-mix(in srgb, var(--accent) 14%, var(--surface)); color: var(--accent-ink);
+             border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); }
+  .badges { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0 0 .55rem; }
+  .badges .venue { margin: 0; }
+  button.venue { cursor: pointer; font-family: inherit; line-height: 1.25; }
+  .venue.v-focus:hover { background: color-mix(in srgb, var(--accent) 24%, var(--surface)); }
+  .venue.v-focus.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  [data-theme="dark"] .venue.v-focus.active { color: #201a11; }
+  .badge-filter-bar { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; margin: 0 0 1.75rem; }
+  .badge-filter-bar .flabel { font-size: .85rem; color: var(--ink-soft); margin-right: .25rem; }
+  .fchip { font-size: .72rem; font-weight: 600; padding: .28rem .65rem; border-radius: 999px; cursor: pointer;
+           border: 1px solid var(--line); background: var(--surface); color: var(--ink-soft); font-family: inherit; }
+  .fchip:hover { color: var(--accent); border-color: var(--accent); }
+  .fchip.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  [data-theme="dark"] .fchip.active { color: #201a11; }
+  .entry-links { display: flex; flex-wrap: wrap; gap: 1rem; font-size: .9rem; font-weight: 500; }
+
+  /* ---------- Code / tools ---------- */
+  .code-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+  .repo {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    padding: 1.25rem 1.25rem 1.1rem; display: flex; flex-direction: column;
+  }
+  .repo h3 { margin: 0 0 .4rem; font-size: 1.1rem; font-family: var(--serif); font-weight: 600; color: var(--ink); }
+  .repo p { margin: 0 0 1rem; color: var(--ink-soft); font-size: .95rem; flex: 1; }
+  .repo a.repo-link { font-weight: 600; font-size: .9rem; text-decoration: none; color: var(--accent-ink); }
+  .repo a.repo-link:hover { color: var(--accent); }
+  .ct-sub { font-family: var(--serif); font-size: 1.15rem; font-weight: 600; margin: 2.6rem 0 1rem; }
+  .ct-sub.first { margin-top: .5rem; }
+  .repo.doc h3 { font-family: var(--serif); font-size: 1.1rem; }
+  .ct-list { display: grid; }
+  .ct-item { display: grid; grid-template-columns: 1fr auto; gap: 1.3rem; align-items: baseline;
+             padding: 1rem 0; border-bottom: 1px solid var(--line); }
+  .ct-item h3 { font-family: var(--serif); font-size: 1.05rem; font-weight: 600; margin: 0; color: var(--ink); }
+  .ct-item p { margin: .3rem 0 0; color: var(--ink-soft); font-size: .93rem; max-width: 72ch; }
+  .ct-item .ct-link { font-weight: 600; font-size: .88rem; color: var(--accent-ink); text-decoration: none; white-space: nowrap; }
+  .ct-item .ct-link:hover { color: var(--accent); }
+  .ct-item .soon { font-weight: 600; font-size: .88rem; color: var(--ink-soft); white-space: nowrap; }
+  @media (max-width: 600px) { .ct-item { grid-template-columns: 1fr; gap: .5rem; } }
+
+  .stack { margin-top: 2.5rem; }
+  .stack h3 { font-size: 1rem; color: var(--ink-soft); font-weight: 600; margin: 0 0 .85rem; }
+  .chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .chip {
+    font-family: var(--mono); font-size: .8rem; color: var(--ink);
+    background: var(--surface-2); border: 1px solid var(--line);
+    padding: .28rem .6rem; border-radius: 6px;
+  }
+
+  /* ---------- Figures gallery ---------- */
+  .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+  figure.fig { margin: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--surface); }
+  figure.fig .thumb {
+    aspect-ratio: 4/3; display: grid; place-items: center; color: var(--ink-soft); font-size: .82rem;
+    text-align:center; padding: 1rem;
+    background: linear-gradient(135deg, var(--surface-2), var(--surface));
+  }
+  figure.fig img { display: block; width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+  figure.fig figcaption { padding: .7rem .9rem; font-size: .88rem; color: var(--ink-soft); }
+
+  /* ---------- Experience (side-figure cards) ---------- */
+  .exp-list { display: grid; gap: 1.5rem; }
+  .exp-card { border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+              background: var(--surface); display: grid; grid-template-columns: 2fr 3fr; height: 300px; }
+  .exp-media { padding: 1.1rem; border-right: 1px solid var(--line); background: var(--surface); height: 100%; overflow: hidden; }
+  .exp-media img { display: block; width: 100%; height: 100%; object-fit: scale-down;
+                   border-radius: 8px; border: 1px solid var(--line); }
+  .exp-body { padding: 1.4rem 1.6rem; overflow-y: auto; display: flex; flex-direction: column; justify-content: center; }
+  .exp-body h3 { font-family: var(--serif); font-size: 1.15rem; font-weight: 600; margin: 0 0 .15rem; }
+  .exp-body .exp-meta { font-size: .86rem; color: var(--ink-soft); margin: 0 0 .7rem; }
+  .exp-body p { color: var(--ink-soft); font-size: .95rem; margin: 0; }
+  @media (max-width: 640px) {
+    .exp-card { grid-template-columns: 1fr; height: auto; }
+    .exp-media { border-right: none; border-bottom: 1px solid var(--line); height: auto; }
+    .exp-media img { height: auto; aspect-ratio: 16/10; }
+    .exp-body { overflow: visible; }
+  }
+
+  /* ---------- Teaching ---------- */
+  .teach-groups { display: grid; gap: 2.2rem; max-width: 74ch; }
+  .teach-role h3 { font-family: var(--serif); font-size: 1.15rem; font-weight: 600; margin: 0 0 .15rem; }
+  .teach-role .teach-meta { color: var(--ink-soft); font-size: .9rem; margin: 0 0 .85rem; }
+  .teach-courses { list-style: none; margin: 0; padding: 0 0 0 1.15rem; display: grid; gap: 1.05rem;
+                   border-left: 2px solid var(--line); }
+  .teach-courses .course-title { font-weight: 600; color: var(--ink); }
+  .teach-courses .course-stat { font-size: .78rem; font-weight: 600; color: var(--accent-ink);
+                                background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+                                border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+                                padding: .08rem .45rem; border-radius: 5px; margin-left: .5rem; white-space: nowrap; }
+  .teach-courses p { margin: .3rem 0 0; color: var(--ink-soft); font-size: .95rem; }
+  .teach-courses .course-link { display: inline-block; margin-top: .4rem; font-size: .85rem;
+                                font-weight: 600; color: var(--accent-ink); text-decoration: none; }
+  .teach-courses .course-link:hover { color: var(--accent); }
+
+  /* ---------- Quote ---------- */
+  blockquote.pull {
+    margin: 0; font-family: var(--serif); font-size: clamp(1.3rem, 1rem + 1.4vw, 1.9rem);
+    line-height: 1.35; letter-spacing: -.01em; max-width: 24ch; color: var(--ink);
+  }
+  blockquote.pull cite { display: block; margin-top: 1rem; font-family: var(--sans);
+                         font-size: .95rem; font-style: normal; color: var(--ink-soft); }
+
+  /* ---------- Contact ---------- */
+  .contact-flex { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem; }
+  .avail { font-size: .95rem; color: var(--ink-soft); max-width: 40ch; }
+  .avail .dot { display:inline-block; width:8px; height:8px; border-radius:50%; background:#3fae6a; margin-right:.5rem; }
+
+  /* ---------- Footer ---------- */
+  footer { border-top: 1px solid var(--line); padding: 2rem 0 3rem; color: var(--ink-soft); font-size: .9rem; }
+  .foot-flex { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; align-items: center; }
+
+  /* single, subtle load reveal — one orchestrated moment */
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(12px); animation: rise .7s ease forwards; }
+    .reveal.d1 { animation-delay: .05s; }
+    .reveal.d2 { animation-delay: .15s; }
+    .reveal.d3 { animation-delay: .25s; }
+    @keyframes rise { to { opacity: 1; transform: none; } }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header>
+  <div class="wrap bar">
+    <nav class="main" aria-label="Primary">
+      <a href="#home" class="active">Home</a>
+      <a href="#research">Research</a>
+      <a href="#teaching">Teaching &amp; Mentoring</a>
+      <a href="#code">Codes &amp; Tools</a>
+      <a href="#about">About</a>
+    </nav>
+    <div class="icons">
+      <!-- EDIT: replace the href values below with your real profiles -->
+      <a class="icon-btn" href="https://www.linkedin.com/in/reihanehzarrabi" aria-label="LinkedIn" title="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.5 8h4V24h-4V8zM8 8h3.8v2.2h.05c.53-1 1.83-2.2 3.77-2.2 4.03 0 4.78 2.65 4.78 6.1V24h-4v-7.1c0-1.7-.03-3.9-2.37-3.9-2.37 0-2.73 1.85-2.73 3.77V24H8V8z"/></svg>
+      </a>
+      <a class="icon-btn" href="https://github.com/Reizrb" aria-label="GitHub" title="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.79 2.73 1.27 3.4.97.1-.76.41-1.27.74-1.56-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.42.36.8 1.08.8 2.18v3.24c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+      </a>
+      <!-- EDIT: your Google Scholar profile -->
+      <a class="icon-btn" href="https://scholar.google.com/citations?user=Jwx8sS8AAAAJ&hl=en" aria-label="Google Scholar" title="Google Scholar">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v3.5L12 20l7-3.32v-3.5L12 16.5 5 13.18z"/></svg>
+      </a>
+      <!-- EDIT: your email -->
+      <a class="icon-btn" href="mailto:rzarrabi@crimson.ua.edu" aria-label="Email" title="Email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+      </a>
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle dark theme" title="Toggle theme">
+        <svg id="iconSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg>
+        <svg id="iconMoon" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<a id="top"></a>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero tab active" id="home" style="border-top:none;padding:0">
+  <svg class="hero-contours" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g fill="none" stroke="currentColor" stroke-width="1.4">
+      <path d="M-50 120 C 200 60, 400 200, 650 140 S 1050 40, 1300 130"/>
+      <path d="M-50 175 C 200 115, 420 250, 660 195 S 1060 95, 1300 185"/>
+      <path d="M-50 230 C 220 175, 430 305, 670 250 S 1070 150, 1300 240"/>
+      <path d="M-50 285 C 230 235, 440 360, 680 305 S 1080 205, 1300 295"/>
+      <path d="M-50 340 C 240 295, 450 415, 690 360 S 1090 260, 1300 350"/>
+      <path d="M-50 395 C 250 350, 460 470, 700 415 S 1100 315, 1300 405"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <p class="eyebrow reveal d1">Nice to meet you! I&rsquo;m</p>
+        <h1 class="reveal d1">Reihaneh<br>Zarrabi</h1>
+        <div class="hero-actions reveal d3">
+          <a class="btn btn-primary" href="mailto:rzarrabi@crimson.ua.edu">Want to get in touch?</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <p class="lede reveal d2">I use <strong>geospatial data</strong>, <strong>AI</strong>, and <strong>water resources modeling</strong> to understand how rivers and landscapes respond to extreme events, from the scale of a single channel to an entire continent, and what that means for the communities in their path. This is where I share my research, teaching, and work on rivers and floods.</p>
+        <div class="roles reveal d2">
+          <span class="role">Geospatial Data Scientist</span>
+          <span class="role">Water Resources Engineer</span>
+          <span class="role">Flood Risk Analyst</span>
+          <span class="role">Educator</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RESEARCH ===================== -->
+<section class="tab" id="research">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Research</h2>
+    </div>
+    <div class="badge-filter-bar">
+      <span class="flabel">Filter by focus:</span>
+      <button id="filterAll" class="fchip active">All</button>
+      <button class="fchip" data-badge="Machine Learning">Machine Learning</button>
+      <button class="fchip" data-badge="Geospatial Analysis">Geospatial Analysis</button>
+      <button class="fchip" data-badge="River Systems &amp; Geomorphology">River Systems &amp; Geomorphology</button>
+      <button class="fchip" data-badge="Hydrologic &amp; Hydraulic Modeling">Hydrologic &amp; Hydraulic Modeling</button>
+      <button class="fchip" data-badge="Flood Inundation Mapping">Flood Inundation Mapping</button>
+      <button class="fchip" data-badge="Natural Risk Assessment">Natural Risk Assessment</button>
+      <button class="fchip" data-badge="Remote Sensing &amp; Earth Observation">Remote Sensing &amp; Earth Observation</button>
+    </div>
+    <div class="research-grid">
+            <!-- ===== Card 1 ===== -->
+      <article class="r-card">
+        <div class="r-media">
+          <div class="carousel" data-carousel>
+            <!-- EDIT: swap each src for your clean map; add/remove slide+dot pairs to change count -->
+            <img class="slide on" src="assets/fig01.jpg" alt="Bankfull width across CONUS rivers">
+            <img class="slide" src="assets/fig02.jpg" alt="Bankfull depth across CONUS rivers">
+            <img class="slide" src="assets/fig03.jpg" alt="Mean-flow width across CONUS rivers">
+            <img class="slide" src="assets/fig04.jpg" alt="Mean-flow depth across CONUS rivers">
+            <div class="dots">
+              <button class="dot on" aria-label="Bankfull width"></button>
+              <button class="dot" aria-label="Bankfull depth"></button>
+              <button class="dot" aria-label="Mean-flow width"></button>
+              <button class="dot" aria-label="Mean-flow depth"></button>
+            </div>
+          </div>
+        </div>
+        <div class="r-body">
+          <div class="badges"><button class="venue v-focus badge-filter" data-badge="Machine Learning">Machine Learning</button><button class="venue v-focus badge-filter" data-badge="Geospatial Analysis">Geospatial Analysis</button><button class="venue v-focus badge-filter" data-badge="River Systems &amp; Geomorphology">River Systems &amp; Geomorphology</button></div>
+          <h3>How wide and deep are rivers across the CONUS?</h3>
+          <p>Machine learning estimates of river width and depth under mean-flow and bankfull conditions for 2.7 million river reaches across CONUS, using USGS field observations with geospatial datasets (STATSGO, NHDPlusV2, NLCD, NID, EVI, D50, and aridity index). The dataset improves bankfull width and depth estimates by 30% and 78%, respectively, over traditional models.</p>
+          <div class="entry-links">
+            <a href="https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2024WR037997" target="_blank" rel="noopener">Paper</a>
+            <a href="https://www.hydroshare.org/resource/1a2e115c212f4f4a80660f94339205e6/" target="_blank" rel="noopener">Dataset</a>
+            <span style="color:var(--ink-soft)">API (coming soon)</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== Card 2 ===== -->
+      <article class="r-card">
+        <div class="r-media">
+          <div class="carousel" data-carousel>
+            <img class="slide on" src="assets/fig05.jpg" alt="Predicted rating-curve coefficient across US rivers">
+            <img class="slide" src="assets/fig06.jpg" alt="Predicted rating-curve exponent across US rivers">
+            <div class="dots">
+              <button class="dot on" aria-label="Rating-curve coefficient"></button>
+              <button class="dot" aria-label="Rating-curve exponent"></button>
+            </div>
+          </div>
+        </div>
+        <div class="r-body">
+          <div class="badges"><button class="venue v-focus badge-filter" data-badge="Machine Learning">Machine Learning</button><button class="venue v-focus badge-filter" data-badge="Geospatial Analysis">Geospatial Analysis</button><button class="venue v-focus badge-filter" data-badge="Hydrologic &amp; Hydraulic Modeling">Hydrologic &amp; Hydraulic Modeling</button></div>
+          <h3>At least one rating curve for every river in the CONUS!</h3>
+          <p>Machine learning estimation and construction of synthetic rating curve power-law parameters for 2.7 million river reaches across CONUS, using USGS observations together with channel geometry and hydrological and geospatial datasets.</p>
+          <div class="entry-links"><a href="https://doi.org/10.1038/s41598-025-27881-2" target="_blank" rel="noopener">Paper</a><a href="https://zenodo.org/records/13835780" target="_blank" rel="noopener">Dataset</a></div>
+        </div>
+      </article>
+
+      <!-- ===== Card 3 ===== -->
+      <article class="r-card">
+        <div class="r-media">
+          <div class="carousel" data-carousel>
+            <img class="slide on" src="assets/fig07.jpg" alt="Laboratory flume with sediment feeder used in the aggradation experiments">
+            <img class="slide" src="assets/fig08.jpg" alt="Bed and water-surface elevation over space and time">
+            <img class="slide" src="assets/fig09.jpg" alt="Perturbation celerity and celerity-to-velocity ratio over space and time">
+            <div class="dots">
+              <button class="dot on" aria-label="Flume setup"></button>
+              <button class="dot" aria-label="Bed and water elevation"></button>
+              <button class="dot" aria-label="Celerity"></button>
+            </div>
+          </div>
+        </div>
+        <div class="r-body">
+          <div class="badges"><button class="venue v-focus badge-filter" data-badge="River Systems &amp; Geomorphology">River Systems &amp; Geomorphology</button><button class="venue v-focus badge-filter" data-badge="Hydrologic &amp; Hydraulic Modeling">Hydrologic &amp; Hydraulic Modeling</button></div>
+          <h3>How fast does a riverbed move under supercritical flow?</h3>
+          <p>Laboratory investigation of sediment aggradation and its propagation through river channels under supercritical flow, showing that aggradation waves travel much more slowly than hydrodynamic perturbations, typically at less than 5% of the initial flow velocity.</p>
+          <div class="entry-links"><a href="https://doi.org/10.5194/esurf-13-437-2025" target="_blank" rel="noopener">Paper</a><a href="https://zenodo.org/records/10641001" target="_blank" rel="noopener">Dataset</a></div>
+        </div>
+      </article>
+
+      <!-- ===== Card 4 ===== -->
+      <article class="r-card">
+        <div class="r-media">
+          <div class="carousel" data-carousel>
+            <!-- EDIT: swap src or add/remove slide+dot pairs -->
+            <img class="slide on" src="assets/fig10.jpg" alt="Contingency flood maps comparing the original and BARC-SS configurations across three events">
+            <img class="slide" src="assets/fig11.jpg" alt="BARC-SS concept: adjusting the synthetic rating curve for channel bathymetry missing from the DEM">
+            <div class="dots">
+              <button class="dot on" aria-label="Contingency flood maps"></button>
+              <button class="dot" aria-label="Concept diagram"></button>
+            </div>
+          </div>
+        </div>
+        <div class="r-body">
+          <div class="badges"><button class="venue v-focus badge-filter" data-badge="Hydrologic &amp; Hydraulic Modeling">Hydrologic &amp; Hydraulic Modeling</button><button class="venue v-focus badge-filter" data-badge="Flood Inundation Mapping">Flood Inundation Mapping</button><button class="venue v-focus badge-filter" data-badge="Geospatial Analysis">Geospatial Analysis</button><button class="venue v-focus badge-filter" data-badge="Natural Risk Assessment">Natural Risk Assessment</button></div>
+          <h3>Bringing missing river bathymetry into operational terrain-based flood mapping</h3>
+          <p>A scalable low-cost geospatial algorithm, BARC-SS, that accounts for river bathymetry missing from DEMs by adjusting synthetic rating curves within the operational OWP HAND-FIM framework. Tested across six major CONUS rivers, the approach improves flood-mapping accuracy by up to 110% and flooded-building detection by up to 120%.</p>
+          <div class="entry-links"><span style="color:var(--ink-soft)">Paper (coming soon)</span><span style="color:var(--ink-soft)">BARC-SS algorithm (coming soon)</span></div>
+        </div>
+      </article>
+
+      <!-- ===== Card 5 ===== -->
+      <article class="r-card">
+        <div class="r-media">
+          <div class="carousel" data-carousel>
+            <img class="slide on" src="assets/fig12.jpg" alt="Peak-flow discharge CV, 2015-16">
+            <img class="slide" src="assets/fig13.jpg" alt="Peak-flow discharge CV, 2019">
+            <img class="slide" src="assets/fig14.jpg" alt="Peak-flow timing CV, 2015-16">
+            <img class="slide" src="assets/fig15.jpg" alt="Peak-flow timing CV, 2019">
+            <img class="slide" src="assets/fig16.jpg" alt="Runoff volume CV, 2015-16">
+            <img class="slide" src="assets/fig17.jpg" alt="Runoff volume CV, 2019">
+            <div class="dots">
+              <button class="dot on" aria-label="Peak flow 2015-16"></button>
+              <button class="dot" aria-label="Peak flow 2019"></button>
+              <button class="dot" aria-label="Peak-flow timing 2015-16"></button>
+              <button class="dot" aria-label="Peak-flow timing 2019"></button>
+              <button class="dot" aria-label="Runoff volume 2015-16"></button>
+              <button class="dot" aria-label="Runoff volume 2019"></button>
+            </div>
+          </div>
+        </div>
+        <div class="r-body">
+          <div class="badges"><button class="venue v-focus badge-filter" data-badge="Hydrologic &amp; Hydraulic Modeling">Hydrologic &amp; Hydraulic Modeling</button><button class="venue v-focus badge-filter" data-badge="Geospatial Analysis">Geospatial Analysis</button><button class="venue v-focus badge-filter" data-badge="Natural Risk Assessment">Natural Risk Assessment</button></div>
+          <h3>Does river shape change the routed hydrograph?</h3>
+          <p>Updated NWM T-Route with CONUS-wide ML-derived channel geometry and evaluated how channel side slopes affect simulated peak flow, peak-flow timing, and runoff volume during major floods in the Arkansas-White-Red Basin. Sensitivity of peak flow and runoff volume generally increased with flood magnitude, while sensitivity of peak-flow timing decreased but became more variable.</p>
+          <div class="entry-links"><span style="color:var(--ink-soft)">Paper (coming soon)</span><span style="color:var(--ink-soft)">Updated T-Route geometry file (coming soon)</span></div>
+        </div>
+      </article>
+
+      <!-- ===== Card 6 ===== -->
+      <article class="r-card">
+        <div class="r-media">
+          <div class="carousel" data-carousel>
+            <img class="slide on" src="assets/fig18.jpg" alt="Median river water-surface slope across global river reaches">
+            <img class="slide" src="assets/fig19.jpg" alt="Relative range (temporal variability) of river water-surface slope">
+            <div class="dots">
+              <button class="dot on" aria-label="Median water-surface slope"></button>
+              <button class="dot" aria-label="Slope variability"></button>
+            </div>
+          </div>
+        </div>
+        <div class="r-body">
+          <div class="badges"><button class="venue v-focus badge-filter" data-badge="Remote Sensing &amp; Earth Observation">Remote Sensing &amp; Earth Observation</button><button class="venue v-focus badge-filter" data-badge="Geospatial Analysis">Geospatial Analysis</button><button class="venue v-focus badge-filter" data-badge="River Systems &amp; Geomorphology">River Systems &amp; Geomorphology</button></div>
+          <h3>Global river slope is not static!</h3>
+          <p>A global dataset of temporal water-surface elevation (WSE) and water-surface slope (WSS) across 155,319 river reaches, derived from three years of Surface Water and Ocean Topography (SWOT) observations. The study shows substantial, spatially organized temporal variability in river WSS, with a global median relative WSS range of 0.44.</p>
+          <div class="entry-links"><span style="color:var(--ink-soft)">Paper (coming soon)</span></div>
+        </div>
+      </article>
+
+      <!-- ===== Card 7 ===== -->
+      <article class="r-card">
+        <div class="r-media">
+          <div class="carousel" data-carousel>
+            <img class="slide on" src="assets/fig20.jpg" alt="Predicted mean building-damage amount per ZIP code, Hurricane Harvey">
+            <img class="slide" src="assets/fig21.jpg" alt="Model absolute bias (%) by ZIP code">
+            <img class="slide" src="assets/fig22.jpg" alt="Social vulnerability index by ZIP code">
+            <div class="dots">
+              <button class="dot on" aria-label="Predicted damage"></button>
+              <button class="dot" aria-label="Model bias"></button>
+              <button class="dot" aria-label="Social vulnerability"></button>
+            </div>
+          </div>
+        </div>
+        <div class="r-body">
+          <div class="badges"><button class="venue v-focus badge-filter" data-badge="Machine Learning">Machine Learning</button><button class="venue v-focus badge-filter" data-badge="Geospatial Analysis">Geospatial Analysis</button><button class="venue v-focus badge-filter" data-badge="Natural Risk Assessment">Natural Risk Assessment</button></div>
+          <h3>Where did Hurricane Harvey cause the most building damage, and why?</h3>
+          <p>Machine learning estimates of flooded building damage across Texas and Louisiana following Hurricane Harvey (2017) at the ZIP-code scale, integrating NFIP flood-insurance claims with geospatial, hydrologic, and socioeconomic data. Feature-importance analysis showed that damage was highest where recorded flood depth and building value were greatest, particularly for two-story buildings.</p>
+          <div class="entry-links"><a href="https://www.researchgate.net/publication/413623284_Leveraging_Geospatial_Data_and_Machine_Learning_to_Predict_Insurance-derived_Flood_Damage_Cost" target="_blank" rel="noopener">Technical report</a></div>
+        </div>
+      </article>
+
+      <!-- ===== Card 8 ===== -->
+      <article class="r-card">
+        <div class="r-media">
+          <img class="r-fig" src="assets/fig23.jpg" alt="ML-derived annual-maximum peak-flow discharge across Alabama rivers">
+        </div>
+        <div class="r-body">
+          <div class="badges"><button class="venue v-focus badge-filter" data-badge="Machine Learning">Machine Learning</button><button class="venue v-focus badge-filter" data-badge="Geospatial Analysis">Geospatial Analysis</button><button class="venue v-focus badge-filter" data-badge="Hydrologic &amp; Hydraulic Modeling">Hydrologic &amp; Hydraulic Modeling</button></div>
+          <h3>How high can Alabama&rsquo;s rivers go each year?</h3>
+          <p>Machine learning estimates of maximum of annual peak-flow discharge for ~78,000 river reaches across Alabama, using USGS streamflow observations with channel geometry, soil, drainage-area, dam, and other geospatial datasets. Estimated peak flows range from 0.0085 m³/s in the Lower Coosa River to 12,561.29 m³/s in the Tennessee River, with a median of 247.94 m³/s.</p>
+          <div class="entry-links"><a href="https://www.researchgate.net/publication/413623729_Estimation_of_Maximum_Annual_Peak_Flow_Discharge_for_Gauged_and_Ungauged_River_Streams_in_Alabama" target="_blank" rel="noopener">Technical report</a><a href="https://drive.google.com/file/d/1JlSaE4CH_LVnLn8HTd0KKjtkGsHSq0OT/view?usp=sharing" target="_blank" rel="noopener">Dataset</a></div>
+        </div>
+      </article>
+
+      <!-- ===== Card 9 ===== -->
+      <article class="r-card">
+        <div class="r-media">
+          <div class="carousel" data-carousel>
+            <img class="slide on" src="assets/fig24.jpg" alt="Survey DEM with stream planform, log jams, riprap, and GNSS centerline points">
+            <img class="slide" src="assets/fig25.jpg" alt="High-resolution channel-corridor DEM">
+            <img class="slide" src="assets/fig26.jpg" alt="Surveyed cross-section profile (SP11) with bankfull width and depth">
+            <img class="slide" src="assets/fig27.jpg" alt="Longitudinal bed-elevation change: 2013 vs 2023 and 2023 vs 2026">
+            <div class="dots">
+              <button class="dot on" aria-label="Survey & features"></button>
+              <button class="dot" aria-label="Channel DEM"></button>
+              <button class="dot" aria-label="Cross-section (SP11)"></button>
+              <button class="dot" aria-label="Bed-elevation change"></button>
+            </div>
+          </div>
+        </div>
+        <div class="r-body">
+          <div class="badges"><button class="venue v-focus badge-filter" data-badge="River Systems &amp; Geomorphology">River Systems &amp; Geomorphology</button><button class="venue v-focus badge-filter" data-badge="Geospatial Analysis">Geospatial Analysis</button><button class="venue v-focus badge-filter" data-badge="Remote Sensing &amp; Earth Observation">Remote Sensing &amp; Earth Observation</button><button class="venue v-focus badge-filter" data-badge="Natural Risk Assessment">Natural Risk Assessment</button></div>
+          <h3>Wildfire, erosion, and river recovery!</h3>
+          <p>A field-based study of how a high-elevation Rocky Mountain stream (Colorado) responded to the Cameron Peak Fire in 2020 and subsequent erosion-mitigation efforts. Generated high-resolution DEMs from airborne LiDAR and UAV surveys, surveyed cross-sections using RTK-GNSS, and quantified longitudinal bed-elevation changes from 2013, 2023, and 2026. Results showed a shift from post-fire degradation to aggradation following erosion-mitigation measures.</p>
+        </div>
+      </article>
+
+      <!-- ===== Card 10 ===== -->
+      <article class="r-card">
+        <div class="r-media">
+          <div class="carousel" data-carousel>
+            <img class="slide on" src="assets/fig28.jpg" alt="Probabilistic flood-risk map, Arkansas River near Conway">
+            <img class="slide" src="assets/fig29.jpg" alt="Terrain elevation (DEM) with stream network, Arkansas River near Conway">
+            <div class="dots">
+              <button class="dot on" aria-label="Flood risk probability"></button>
+              <button class="dot" aria-label="Terrain (DEM)"></button>
+            </div>
+          </div>
+        </div>
+        <div class="r-body">
+          <div class="badges"><button class="venue v-focus badge-filter" data-badge="Hydrologic &amp; Hydraulic Modeling">Hydrologic &amp; Hydraulic Modeling</button><button class="venue v-focus badge-filter" data-badge="Flood Inundation Mapping">Flood Inundation Mapping</button><button class="venue v-focus badge-filter" data-badge="Geospatial Analysis">Geospatial Analysis</button><button class="venue v-focus badge-filter" data-badge="River Systems &amp; Geomorphology">River Systems &amp; Geomorphology</button><button class="venue v-focus badge-filter" data-badge="Natural Risk Assessment">Natural Risk Assessment</button></div>
+          <h3>When the flood map says &ldquo;maybe&rdquo;: accounting for roughness</h3>
+          <p>A probabilistic flood inundation mapping framework using HEC-RAS simulations and the GLUE uncertainty method to quantify flood-map uncertainty under varying land-surface roughness along the Arkansas River near Conway, Arkansas. Flood extent increased with Manning's n, while the highest-probability zones (0.76-1.00) remained concentrated along riverbanks and low-lying floodplains.</p>
+          <div class="entry-links"><a href="https://www.researchgate.net/publication/413567889_Integrating_Probabilistic_Approaches_to_Incorporate_the_Impact_of_Land_Use_Changes_on_Flood_Risk" target="_blank" rel="noopener">Technical report</a></div>
+        </div>
+      </article>
+
+      <!-- ===== Card 11 ===== -->
+      <article class="r-card">
+        <div class="r-media">
+          <div class="carousel" data-carousel>
+            <img class="slide on" src="assets/fig30.jpg" alt="Stream-order distribution across the southeastern US">
+            <img class="slide" src="assets/fig31.jpg" alt="Channel conveyance capacity (rectangular channel shape) across the southeastern US">
+            <div class="dots">
+              <button class="dot on" aria-label="Stream order"></button>
+              <button class="dot" aria-label="Conveyance capacity"></button>
+            </div>
+          </div>
+        </div>
+        <div class="r-body">
+          <div class="badges"><button class="venue v-focus badge-filter" data-badge="Geospatial Analysis">Geospatial Analysis</button><button class="venue v-focus badge-filter" data-badge="River Systems &amp; Geomorphology">River Systems &amp; Geomorphology</button><button class="venue v-focus badge-filter" data-badge="Hydrologic &amp; Hydraulic Modeling">Hydrologic &amp; Hydraulic Modeling</button></div>
+          <h3>Not all rivers carry water the same way in the southeastern U.S.!</h3>
+          <p>Geospatial analysis of nearly 700,000 streams across the southeastern U.S. showing that channel shape, not just channel size, is a first-order control on river conveyance. A triangular channel with 50% less cross-sectional area can convey roughly six times less water than a rectangular channel at the 2-year flood, with the effect diminishing rapidly downstream.</p>
+        </div>
+      </article>
+
+      <!-- ===== Card 12 ===== -->
+      <article class="r-card">
+        <div class="r-media">
+          <div class="carousel" data-carousel>
+            <img class="slide on" src="assets/fig32.jpg" alt="Flood hazard map (water depth), Sondrio">
+            <img class="slide" src="assets/fig33.jpg" alt="People at risk (PAR), Sondrio">
+            <img class="slide" src="assets/fig34.jpg" alt="Critical facilities and public buildings, Sondrio">
+            <img class="slide" src="assets/fig35.jpg" alt="Evacuation map, Sondrio">
+            <div class="dots">
+              <button class="dot on" aria-label="Hazard (water depth)"></button>
+              <button class="dot" aria-label="People at risk"></button>
+              <button class="dot" aria-label="Critical facilities"></button>
+              <button class="dot" aria-label="Evacuation"></button>
+            </div>
+          </div>
+        </div>
+        <div class="r-body">
+          <div class="badges"><button class="venue v-focus badge-filter" data-badge="Hydrologic &amp; Hydraulic Modeling">Hydrologic &amp; Hydraulic Modeling</button><button class="venue v-focus badge-filter" data-badge="Flood Inundation Mapping">Flood Inundation Mapping</button><button class="venue v-focus badge-filter" data-badge="Geospatial Analysis">Geospatial Analysis</button><button class="venue v-focus badge-filter" data-badge="River Systems &amp; Geomorphology">River Systems &amp; Geomorphology</button><button class="venue v-focus badge-filter" data-badge="Natural Risk Assessment">Natural Risk Assessment</button></div>
+          <h3>From landslide to flood: planning for the unexpected</h3>
+          <p>An integrated assessment of hydrogeological hazards in the mountain area of Sondrio, Italy, evaluating a potential natural dam-break scenario associated with the Spriana landslide and modeling flood-wave propagation and sediment release through River2D and BASEMENT.</p>
+          <div class="entry-links"><a href="https://www.researchgate.net/publication/364353843_The_Emergency_Plan_Dam_Break_Flood_Scenario_Sondrio_SO_Italy" target="_blank" rel="noopener">Emergency plan report</a><a href="https://www.researchgate.net/publication/413591857_River_Dynamics_Assessment_Impact_of_Infrastructure_on_the_Parma_River_Emilia-Romagna_Italy" target="_blank" rel="noopener">Hydraulics annex</a><a href="https://www.researchgate.net/publication/364334760_Hydrogeological_Risks_in_Mountain_Area_Geological_Technical_Annex" target="_blank" rel="noopener">Geological annex</a><a href="https://www.researchgate.net/publication/364334769_Hydrogeological_Risks_in_Mountain_Area_Emergency_Plan_Technical_Annex" target="_blank" rel="noopener">Emergency plan annex</a></div>
+        </div>
+      </article>
+
+      <!-- ===== Card 13 ===== -->
+      <article class="r-card">
+        <div class="r-media">
+          <div class="carousel" data-carousel>
+            <img class="slide on" src="assets/fig36.jpg" alt="HEC-RAS water-surface profile along the Parma River">
+            <img class="slide" src="assets/fig37.jpg" alt="Modeled channel cross-section">
+            <img class="slide" src="assets/fig38.jpg" alt="3D perspective of the reach with bridges">
+            <img class="slide" src="assets/fig39.jpg" alt="Bridge cross-section with piers">
+            <div class="dots">
+              <button class="dot on" aria-label="Water-surface profile"></button>
+              <button class="dot" aria-label="Cross-section"></button>
+              <button class="dot" aria-label="3D perspective"></button>
+              <button class="dot" aria-label="Bridge cross-section"></button>
+            </div>
+          </div>
+        </div>
+        <div class="r-body">
+          <div class="badges"><button class="venue v-focus badge-filter" data-badge="Hydrologic &amp; Hydraulic Modeling">Hydrologic &amp; Hydraulic Modeling</button><button class="venue v-focus badge-filter" data-badge="Geospatial Analysis">Geospatial Analysis</button><button class="venue v-focus badge-filter" data-badge="Natural Risk Assessment">Natural Risk Assessment</button></div>
+          <h3>What happens when a bridge meets a river?</h3>
+          <p>An assessment of how bridges, sills, and other engineered features control river hydraulics and flood behavior along the Parma River near Parma, Italy, using HEC-RAS hydraulic modeling. Bridges and sills acted as local hydraulic controls, with the Italia Bridge triggering a transition from subcritical to supercritical flow and a hydraulic jump.</p>
+          <div class="entry-links"><a href="https://www.researchgate.net/publication/413591857_River_Dynamics_Assessment_Impact_of_Infrastructure_on_the_Parma_River_Emilia-Romagna_Italy" target="_blank" rel="noopener">Technical report</a></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TEACHING ===================== -->
+<section class="tab" id="teaching">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Teaching</h2>
+    </div>
+    <div class="teach-groups">
+
+      <div class="teach-group">
+        <div class="teach-role">
+          <h3>Instructor of Record</h3>
+          <p class="teach-meta">Department of Geography and the Environment, University of Alabama &middot; AY 2025–2026</p>
+        </div>
+        <ul class="teach-courses">
+          <li>
+            <div><span class="course-title">GY 582/682 &mdash; Data Science Analytics in Water</span><span class="course-stat">6 graduates &middot; P90 96.29/100</span></div>
+            <p>Designed and delivered a graduate course on advanced Python-based data science and machine-learning techniques applied to water resources.</p>
+            <a class="course-link" href="https://alabama.app.box.com/s/qhijq1ezk9t2zem9ddq237aqo8bzfzpw/file/2430645258675" target="_blank" rel="noopener">Syllabus &rarr;</a>
+          </li>
+          <li>
+            <div><span class="course-title">Introduction to Hydrology &mdash; crash course for Computer Science majors</span><span class="course-stat">10 undergraduates</span></div>
+            <p>Developed and taught a short course introducing fundamental hydrologic concepts and processes to a non-hydrology audience.</p>
+          </li>
+          <li>
+            <div><span class="course-title">GY 110 &mdash; People, Places &amp; Environment</span><span class="course-stat">25 undergraduates &middot; P90 90/100</span></div>
+            <p>Taught an introductory human-geography course emphasizing how people interact with their surroundings, make decisions, and shape the world at local and global scales.</p>
+            <a class="course-link" href="https://alabama.app.box.com/s/sxxl3kymw5e1ybge1zip7tssg8h0nfaj" target="_blank" rel="noopener">Syllabus &rarr;</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="teach-group">
+        <div class="teach-role">
+          <h3>Guest Lecturer</h3>
+          <p class="teach-meta">Department of Geography and the Environment, University of Alabama &middot; Spring 2025 &amp; 2026</p>
+        </div>
+        <ul class="teach-courses">
+          <li>
+            <div><span class="course-title">GY 523 &mdash; Quantitative Methods</span></div>
+            <p>Delivered guest lectures on the application of machine learning to geospatial problems.</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="teach-group">
+        <div class="teach-role">
+          <h3>Lab Instructor</h3>
+          <p class="teach-meta">Department of Geography and the Environment, University of Alabama &middot; Fall 2024</p>
+        </div>
+        <ul class="teach-courses">
+          <li>
+            <div><span class="course-title">GY 101 &mdash; Atmospheric Patterns &amp; Processes</span><span class="course-stat">78 undergraduates &middot; P90 99.3/100</span></div>
+            <p>Delivered an introductory physical-geography laboratory using Google Earth Engine and climate datasets to explore and visualize spatial and temporal patterns in weather, climate, and environmental data.</p>
+            <a class="course-link" href="https://alabama.app.box.com/s/tuguh3piu8xlhbftf4q2mlvb6yubff7j" target="_blank" rel="noopener">Syllabus &rarr;</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="teach-group">
+        <div class="teach-role">
+          <h3>Online Tutoring</h3>
+          <p class="teach-meta">Freelance &middot; Fall 2022</p>
+        </div>
+        <ul class="teach-courses">
+          <li>
+            <div><span class="course-title">River Hydraulics</span></div>
+            <p>One-on-one tutoring on open-channel flow, energy and momentum principles, and sediment transport.</p>
+          </li>
+          <li>
+            <div><span class="course-title">Theory of Plasticity</span></div>
+            <p>One-on-one tutoring on yield criteria, stress–strain relationships, and elastoplastic material behavior.</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="teach-group">
+        <div class="teach-role">
+          <h3>Undergraduate Teaching Assistant</h3>
+          <p class="teach-meta">Department of Civil Engineering, Sadjad University of Technology, Iran &middot; AY 2016–2018</p>
+        </div>
+        <ul class="teach-courses">
+          <li>
+            <div><span class="course-title">Fluid Mechanics I Lab (CE 400-level)</span><span class="course-stat">42 undergraduates</span></div>
+            <p>Guided students in applying theoretical concepts of fluid mechanics and hydraulics to engineering problems.</p>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="sec-head" style="margin-top:3.5rem">
+      <h2>Leadership &amp; Mentoring</h2>
+    </div>
+    <div class="teach-groups">
+
+      <div class="teach-group">
+        <div class="teach-role">
+          <h3>Research Mentor</h3>
+          <p class="teach-meta">AI for Operational Hydrology Program, University of Alabama Graduate School &middot; Summer 2026</p>
+        </div>
+        <ul class="teach-courses">
+          <li><p>Mentored an undergraduate computer-science researcher on applying machine learning to environmental modeling and geospatial problems, developing LSTM models to estimate annual-maximum discharge across CONUS in support of more accurate flood-frequency analysis for river reaches nationwide.</p></li>
+        </ul>
+      </div>
+
+      <div class="teach-group">
+        <div class="teach-role">
+          <h3>Panelist</h3>
+          <p class="teach-meta">Graduate Teaching Assistant Workshop, University of Alabama Graduate School &middot; Summer 2026</p>
+        </div>
+      </div>
+
+      <div class="teach-group">
+        <div class="teach-role">
+          <h3>Research Evaluator</h3>
+          <p class="teach-meta">Undergraduate Research &amp; Creative Activity Conference, University of Alabama &middot; Spring 2026</p>
+        </div>
+      </div>
+
+      <div class="teach-group">
+        <div class="teach-role">
+          <h3>Undergraduate Research Mentor</h3>
+          <p class="teach-meta">Surface Dynamics Modeling Lab, University of Alabama &middot; 2024–2025</p>
+        </div>
+        <ul class="teach-courses">
+          <li><p>Mentored an undergraduate student on the post-processing and visualization of operational flood-inundation-mapping products.</p></li>
+          <li><p>Mentored an undergraduate student on a data-acquisition and quality-control pipeline for river channel hydraulic datasets used in large-scale river modeling.</p></li>
+        </ul>
+      </div>
+
+      <div class="teach-group">
+        <div class="teach-role">
+          <h3>Journal Reviewer</h3>
+          <p class="teach-meta">Environmental Modelling &amp; Software &middot; Journal of Hydrology &middot; Water Resources Research &middot; 2025–Present</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CODE ===================== -->
+<section class="tab" id="code">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Codes &amp; Tools</h2>
+    </div>
+
+    <h3 class="ct-sub first">Code</h3>
+    <div class="ct-list">
+      <div class="ct-item">
+        <div>
+          <h3>Machine learning workflows for river channel-geometry prediction across CONUS</h3>
+          <p>End-to-end machine-learning workflows for predicting bankfull and mean-flow channel width and depth across ~2.7 million NHDPlus reaches, including data preprocessing, model development, model evaluation, feature-importance analysis, and model transfer from gauged to ungauged streams for CONUS-wide prediction.</p>
+        </div>
+        <a class="ct-link" href="https://github.com/Reizrb/Bankfull-and-mean-flow-channel-geometry-for-CONUS" target="_blank" rel="noopener">View repository &rarr;</a>
+      </div>
+      <div class="ct-item">
+        <div>
+          <h3>Machine learning workflows for maximum peak-flow prediction across Alabama</h3>
+          <p>End-to-end machine-learning workflows for predicting maximum annual peak-flow discharge across ~78,000 NHDPlus reaches in Alabama, including data preprocessing, model development, model evaluation, feature-importance analysis, and model transfer from gauged to ungauged streams for statewide prediction.</p>
+        </div>
+        <a class="ct-link" href="https://github.com/Reizrb/NSF-R2O-NRT_2023" target="_blank" rel="noopener">View repository &rarr;</a>
+      </div>
+      <div class="ct-item">
+        <div>
+          <h3>Machine learning workflows for flood-damage-cost prediction across TX and LA during Hurricane Harvey (2017)</h3>
+          <p>End-to-end machine-learning workflows for predicting flood-related building-damage cost across Texas and Louisiana following Hurricane Harvey (2017) at the ZIP-code scale, including data preprocessing, model development, model evaluation, and feature-importance analysis.</p>
+        </div>
+        <a class="ct-link" href="https://github.com/Reizrb/SI2024" target="_blank" rel="noopener">View repository &rarr;</a>
+      </div>
+      <div class="ct-item">
+        <div>
+          <h3>Bathymetric Adjustment of Synthetic Rating Curves and Stage Shift (BARC-SS) algorithm</h3>
+          <p>Geospatial algorithm integrated into the Operational Flood Inundation Mapping (OWP HAND-FIM) framework to account for missing channel bathymetry by adjusting synthetic rating curves and shifting flood stages to the riverbed datum using ML-derived channel geometry.</p>
+        </div>
+        <span class="soon">Coming soon</span>
+      </div>
+      <div class="ct-item">
+        <div>
+          <h3>Update T-Route channel geometry</h3>
+          <p>Pipeline that injects ML-derived channel geometry into the NWM T-Route routing geometry configuration file.</p>
+        </div>
+        <span class="soon">Coming soon</span>
+      </div>
+    </div>
+    <h3 class="ct-sub">Datasets</h3>
+    <div class="ct-list">
+      <div class="ct-item">
+        <div>
+          <h3>Bankfull &amp; mean-flow channel geometry across CONUS</h3>
+        </div>
+        <a class="ct-link" href="https://www.hydroshare.org/resource/1a2e115c212f4f4a80660f94339205e6/" target="_blank" rel="noopener">View on HydroShare &rarr;</a>
+      </div>
+      <div class="ct-item">
+        <div>
+          <h3>Stage-discharge rating curve power-law parameters across CONUS</h3>
+        </div>
+        <a class="ct-link" href="https://zenodo.org/records/13835780" target="_blank" rel="noopener">View on Zenodo &rarr;</a>
+      </div>
+      <div class="ct-item">
+        <div>
+          <h3>Maximum annual peak flow across Alabama</h3>
+        </div>
+        <a class="ct-link" href="https://drive.google.com/file/d/1JlSaE4CH_LVnLn8HTd0KKjtkGsHSq0OT/view?usp=sharing" target="_blank" rel="noopener">View dataset &rarr;</a>
+      </div>
+      <div class="ct-item">
+        <div>
+          <h3>Experimental channel aggradation dataset</h3>
+        </div>
+        <a class="ct-link" href="https://zenodo.org/records/10641001" target="_blank" rel="noopener">View on Zenodo &rarr;</a>
+      </div>
+      <div class="ct-item">
+        <div>
+          <h3>Updated T-Route channel-geometry file (CONUS)</h3>
+        </div>
+        <span class="soon">Coming soon</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="tab" id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>About</h2>
+    </div>
+
+            <blockquote class="pull">&ldquo;All models are wrong, but some are useful.&rdquo;
+      <cite>&mdash; George Box</cite></blockquote>
+
+    <div class="about-body">
+      <figure class="about-photo">
+        <img src="assets/fig40.jpg" alt="Fieldwork at Coalfire Creek, Pickens Watershed, Alabama, January 2024">
+        <figcaption>Coalfire Creek, Pickens Watershed, Alabama, USA &middot; January 2024</figcaption>
+      </figure>
+
+      <p>This quote has stayed with me because it captures something I find fascinating about science: we try to understand a complicated world with tools that can never capture all of it.</p>
+      <p>A perfect example of such a complex system is a river system. A river can be reduced to lines, numbers, equations, and maps, but a real river is never just those things. It moves, changes, responds to its surroundings, and behaves differently from what we expect. That tension between the complexity of the real world and the simplicity of our representations is what keeps me curious.</p>
+      <p>And this curiosity has shaped the way I work. I bring together geospatial data, hydrology &amp; hydraulics concepts, environmental modeling, and data science techniques to better understand rivers and floods. But I&rsquo;m not only interested in what a model tells us. I want to understand what it leaves out, which assumptions shape the results, and what those limitations mean when we take the model into the real world.</p>
+      <p>For me, this matters because the things we model are not just numbers on a map. Floods affect homes, infrastructure, ecosystems, and communities. Better ways of understanding rivers and floods can lead to better information about risk and help people prepare for events that can have very real consequences.</p>
+      <p>That is the perspective I bring to my research, teaching, and the problems I choose to work on: not looking for a perfect representation of the world, but finding better ways to understand its complexity and making that understanding useful.</p>
+    </div>
+
+    <div class="sec-head" style="margin-top:3.5rem">
+      <h2>Education &amp; Certificates</h2>
+    </div>
+    <ul class="cv-list">
+      <li><div class="cv-head"><span class="cv-title">Ph.D., Geography &amp; the Environment</span><span class="cv-date">2023 &ndash; Dec 2026 (expected)</span></div><p class="cv-meta">University of Alabama, USA</p></li>
+      <li><div class="cv-head"><span class="cv-title">M.Sc., Civil Engineering for Risk Mitigation</span><span class="cv-date">2019 &ndash; 2022</span></div><p class="cv-meta">Politecnico di Milano, Italy</p></li>
+      <li><div class="cv-head"><span class="cv-title">B.S., Civil Engineering</span><span class="cv-date">2014 &ndash; 2018</span></div><p class="cv-meta">Sadjad University of Technology, Iran</p></li>
+      <li><div class="cv-head"><span class="cv-title">Geodetic Methods Certificate</span><span class="cv-date">2026</span></div><p class="cv-meta">EarthScope Consortium</p></li>
+      <li><div class="cv-head"><span class="cv-title">Operational Hydrology Certificate</span><span class="cv-date">2026</span></div><p class="cv-meta">University of Alabama Graduate School</p></li>
+    </ul>
+
+    <div class="sec-head" style="margin-top:3rem">
+      <h2>Honors, Awards &amp; Recognitions</h2>
+    </div>
+    <ul class="cv-list">
+      <li><div class="cv-head"><span class="cv-title">Thomas Graziano Research to Operations Award</span><span class="cv-date">Sep 2025</span></div><p class="cv-meta">Team recipient, SDML &middot; CIROH Science Meeting 2025</p></li>
+      <li><div class="cv-head"><span class="cv-title">Early Career Paper Award</span><span class="cv-date">May 2025</span></div><p class="cv-meta">3rd Annual CIROH Developers Conference</p></li>
+      <li><div class="cv-head"><span class="cv-title">Outstanding Teaching Award</span><span class="cv-date">Apr 2026</span></div><p class="cv-meta">Department of Geography &amp; the Environment, University of Alabama</p></li>
+    </ul>
+
+    <div style="margin-top:3rem;border-top:1px solid var(--line);padding-top:2rem;">
+      <a class="btn btn-primary" href="mailto:rzarrabi@crimson.ua.edu">Want to get in touch?</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot-flex">
+    <span>© <span id="year"></span> Reihaneh Zarrabi · Built with plain HTML, hosted on GitHub Pages</span>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var sun = document.getElementById('iconSun');
+    var moon = document.getElementById('iconMoon');
+
+    function apply(theme) {
+      root.setAttribute('data-theme', theme);
+      var dark = theme === 'dark';
+      sun.style.display = dark ? 'none' : 'block';
+      moon.style.display = dark ? 'block' : 'none';
+    }
+
+    // Initial theme: saved pref, else system preference.
+    var saved = null;
+    try { saved = localStorage.getItem('theme'); } catch (e) {}
+    if (saved === 'dark' || saved === 'light') {
+      apply(saved);
+    } else {
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      apply(prefersDark ? 'dark' : 'light');
+    }
+
+    document.getElementById('themeToggle').addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      apply(next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ---- Tab navigation (hash-based, bookmarkable) ----
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('section.tab'));
+    var navLinks = Array.prototype.slice.call(document.querySelectorAll('nav.main a'));
+    function isTab(id) { return tabs.some(function (s) { return s.id === id; }); }
+    function currentId() { return (location.hash || '#home').replace('#', ''); }
+    function showTab(id) {
+      tabs.forEach(function (s) { s.classList.toggle('active', s.id === id); });
+      navLinks.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + id); });
+      window.scrollTo(0, 0);
+    }
+    // Switch tabs on click without relying on hash navigation (works in sandboxed previews too)
+    navLinks.forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var href = a.getAttribute('href') || '';
+        if (href.charAt(0) === '#' && isTab(href.slice(1))) {
+          e.preventDefault();
+          var id = href.slice(1);
+          showTab(id);
+          try { history.replaceState(null, '', '#' + id); } catch (err) {}
+        }
+      });
+    });
+    window.addEventListener('hashchange', function () {
+      var id = currentId();
+      if (isTab(id)) showTab(id);
+    });
+    var initial = currentId();
+    showTab(isTab(initial) ? initial : 'home');
+
+    // ---- Figure galleries (dots) ----
+    document.querySelectorAll('[data-carousel]').forEach(function (car) {
+      var slides = car.querySelectorAll('.slide');
+      var dots = car.querySelectorAll('.dot');
+      dots.forEach(function (dot, i) {
+        dot.addEventListener('click', function () {
+          slides.forEach(function (s, j) { s.classList.toggle('on', j === i); });
+          dots.forEach(function (d, j) { d.classList.toggle('on', j === i); });
+        });
+      });
+    });
+
+    // ---- Badge filtering ----
+    (function () {
+      var grid = document.querySelector('.research-grid');
+      if (!grid) return;
+      var cards = Array.prototype.slice.call(grid.querySelectorAll('.r-card'));
+      var active = null;
+      function cardBadges(c) {
+        return Array.prototype.slice.call(c.querySelectorAll('.badges [data-badge]'))
+          .map(function (b) { return b.getAttribute('data-badge'); });
+      }
+      function apply() {
+        cards.forEach(function (c) {
+          c.style.display = (!active || cardBadges(c).indexOf(active) !== -1) ? '' : 'none';
+        });
+        Array.prototype.slice.call(document.querySelectorAll('[data-badge]')).forEach(function (el) {
+          el.classList.toggle('active', el.getAttribute('data-badge') === active);
+        });
+        var all = document.getElementById('filterAll');
+        if (all) all.classList.toggle('active', !active);
+      }
+      Array.prototype.slice.call(document.querySelectorAll('[data-badge]')).forEach(function (el) {
+        el.addEventListener('click', function () {
+          var v = el.getAttribute('data-badge');
+          active = (active === v) ? null : v;
+          apply();
+        });
+      });
+      var all = document.getElementById('filterAll');
+      if (all) all.addEventListener('click', function () { active = null; apply(); });
+      apply();
+    })();
+  })();
+</script>
+</body>
+</html>
