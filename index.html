@@ -6,15 +6,6 @@
 <title>Reihaneh (Rei) Zarrabi — River science &amp; flood modeling</title>
 <meta name="description" content="Reihaneh Zarrabi — Ph.D. candidate studying large-scale river channel geometry and flood inundation across the contiguous US." />
 
-<!-- ============================================================
-     HOW TO USE THIS FILE
-     1. Drop it into a GitHub repo as  index.html  (or a repo named
-        <yourusername>.github.io for a root-level user site).
-     2. In the repo: Settings > Pages > deploy from the main branch.
-     3. Search this file for  EDIT:  comments — those mark every spot
-        where you need to add a real link, email, or image.
-     ============================================================ -->
-
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -628,12 +619,12 @@
       <article class="r-card">
         <div class="r-media">
           <div class="carousel" data-carousel>
-            <img class="slide on" src="assets/fig12.jpg" alt="Peak-flow discharge CV, 2015-16">
-            <img class="slide" src="assets/fig13.jpg" alt="Peak-flow discharge CV, 2019">
-            <img class="slide" src="assets/fig14.jpg" alt="Peak-flow timing CV, 2015-16">
-            <img class="slide" src="assets/fig15.jpg" alt="Peak-flow timing CV, 2019">
-            <img class="slide" src="assets/fig16.jpg" alt="Runoff volume CV, 2015-16">
-            <img class="slide" src="assets/fig17.jpg" alt="Runoff volume CV, 2019">
+            <img class="slide on" src="assets/fig12.png" alt="Peak-flow discharge CV, 2015-16">
+            <img class="slide" src="assets/fig13.png" alt="Peak-flow discharge CV, 2019">
+            <img class="slide" src="assets/fig14.png" alt="Peak-flow timing CV, 2015-16">
+            <img class="slide" src="assets/fig15.png" alt="Peak-flow timing CV, 2019">
+            <img class="slide" src="assets/fig16.png" alt="Runoff volume CV, 2015-16">
+            <img class="slide" src="assets/fig17.png" alt="Runoff volume CV, 2019">
             <div class="dots">
               <button class="dot on" aria-label="Peak flow 2015-16"></button>
               <button class="dot" aria-label="Peak flow 2019"></button>
@@ -1017,11 +1008,23 @@
         </div>
         <div class="sc-act"><a class="lx-link" href="https://github.com/Reizrb/HydroGeomKit" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a></div>
       </article>
+      <article class="sc-row">
+        <img src="assets/fimbench_logo.png" alt="" class="sc-logo">
+        <div class="sc-text">
+          <span class="sc-kind">Web app, API &amp; Python package</span>
+          <h4>FIMbench</h4>
+          <p>Find, explore, and download 204 standardized benchmark flood inundation maps across CONUS, and feed them straight into FIMeval to evaluate flood-model predictions.</p>
+          <ul class="sc-feat"><li>Filter by FIM tier, HUC8, state, date, or return period</li><li>Query and download maps programmatically in Python</li></ul>
+          <code class="sc-code">pip install fimbench</code>
+        </div>
+        <div class="sc-act"><a class="sc-btn" href="https://fimbench.tethys.ciroh.org/" target="_blank" rel="noopener">Open web app &rarr;</a><a class="lx-link" href="https://github.com/sdmlua/fimbench" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a></div>
+      </article>
     </div>
     <div class="lx-two">
       <div><h3 class="ct-sub">Code</h3><div class="lx-list"><div class="lx-row"><div><h4>Machine learning workflows for river channel-geometry prediction across CONUS</h4><p>Bankfull and mean-flow width and depth across ~2.7 million NHDPlus reaches.</p></div><a class="lx-link" href="https://github.com/Reizrb/Bankfull-and-mean-flow-channel-geometry-for-CONUS" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a></div>
 <div class="lx-row"><div><h4>Machine learning workflows for maximum peak-flow prediction across Alabama</h4><p>Maximum annual peak flow across ~78,000 NHDPlus reaches in Alabama.</p></div><a class="lx-link" href="https://github.com/Reizrb/NSF-R2O-NRT_2023" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a></div>
 <div class="lx-row"><div><h4>Machine learning workflows for flood-damage-cost prediction across TX and LA during Hurricane Harvey (2017)</h4><p>Flood-related building-damage cost at the ZIP-code scale.</p></div><a class="lx-link" href="https://github.com/Reizrb/SI2024" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a></div>
+<div class="lx-row"><div><h4>FIMbench toolkit for building a benchmark flood inundation mapping database</h4><p>Standardizes benchmark flood maps, generates metadata and web tiles, and publishes them to the database.</p></div><a class="lx-link" href="https://github.com/sdmlua/fimbench" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub</a></div>
 <div class="lx-row"><div><h4>Bathymetric Adjustment of Synthetic Rating Curves and Stage Shift (BARC-SS) algorithm</h4><p>Adds missing channel bathymetry to OWP HAND-FIM rating curves and stages.</p></div><span class="lx-soon">Coming soon</span></div>
 <div class="lx-row"><div><h4>Update T-Route channel geometry</h4><p>Injects ML-derived channel geometry into the NWM T-Route geometry file.</p></div><span class="lx-soon">Coming soon</span></div>
 </div></div>
@@ -1029,12 +1032,13 @@
 <div class="lx-row lx-ds"><h4>Stage-discharge rating curve power-law parameters across CONUS</h4><span class="lx-host">Zenodo</span><a class="lx-link" href="https://zenodo.org/records/13835780" target="_blank" rel="noopener">View &rarr;</a></div>
 <div class="lx-row lx-ds"><h4>Maximum annual peak flow across Alabama</h4><span class="lx-host">Google Drive</span><a class="lx-link" href="https://drive.google.com/file/d/1JlSaE4CH_LVnLn8HTd0KKjtkGsHSq0OT/view?usp=sharing" target="_blank" rel="noopener">View &rarr;</a></div>
 <div class="lx-row lx-ds"><h4>Experimental channel aggradation dataset</h4><span class="lx-host">Zenodo</span><a class="lx-link" href="https://zenodo.org/records/10641001" target="_blank" rel="noopener">View &rarr;</a></div>
+<div class="lx-row lx-ds"><h4>FIMbench: benchmark flood inundation maps across CONUS</h4><span class="lx-host">Zenodo</span><a class="lx-link" href="https://doi.org/10.5281/zenodo.22961099" target="_blank" rel="noopener">View &rarr;</a></div>
 <div class="lx-row lx-ds"><h4>Updated T-Route channel-geometry file (CONUS)</h4><span class="lx-soon">Coming soon</span></div>
 </div></div>
     </div>
   </div>
 </section>
-
+     
 <!-- ===================== ABOUT ===================== -->
 <section class="tab" id="about">
   <div class="wrap">
